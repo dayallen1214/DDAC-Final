@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Maersk_Line.Models.Warehouse>
+
+@{
+    ViewBag.Title = "Warehouse Registration Index";
+}
+
+<h2>Warehouse Registration Index</h2>
+
+<p>
+    @Html.ActionLink("New Warehouse Registration", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.WarehouseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supervisor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfContainersStored)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.WarehouseName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Supervisor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfContainersStored)
+        </td>
+        <td>
+            @Html.ActionLink("Warehouse Registration Edit", "Edit", new { id=item.WarehouseID }) |
+            @Html.ActionLink("Warehouse Registration Details", "Details", new { id=item.WarehouseID }) |
+            @Html.ActionLink("Warehouse Registration Delete", "Delete", new { id=item.WarehouseID })
+        </td>
+    </tr>
+}
+
+</table>

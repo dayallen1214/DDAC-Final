@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Maersk_Line.Models.ShipYard>
+
+@{
+    ViewBag.Title = "Shipment Yard Registration Index";
+}
+
+<h2>Shipment Yard Registration</h2>
+
+<p>
+    @Html.ActionLink("Create Shipment Yard Registration", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipYardName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentNumberOfShipsDocked)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShipYardDockNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalNumberOfContainers)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipYardName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentNumberOfShipsDocked)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ShipYardDockNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalNumberOfContainers)
+        </td>
+        <td>
+            @Html.ActionLink("Shipment Yard Registration Edit", "Edit", new { id=item.ShipyardID }) |
+            @Html.ActionLink("Shipment Yard Registration Details", "Details", new { id=item.ShipyardID }) |
+            @Html.ActionLink("Shipment Yard Registration Delete", "Delete", new { id=item.ShipyardID })
+        </td>
+    </tr>
+}
+
+</table>

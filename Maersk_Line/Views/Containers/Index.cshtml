@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Maersk_Line.Models.Container>
+
+@{
+    ViewBag.Title = "Container Registration";
+}
+
+<h2>Container Registration</h2>
+
+<p>
+    @Html.ActionLink("New Container Registration", "Create")
+</p>
+<table class="table table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ContainerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContainerDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContainerAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContainerWeight)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContainerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContainerDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContainerAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ContainerWeight)
+        </td>
+        <td>
+            @Html.ActionLink("Container Registration Edit", "Edit", new { id=item.ContainerID }) |
+            @Html.ActionLink("Container Registration Details", "Details", new { id=item.ContainerID }) |
+            @Html.ActionLink("Container Registration Delete", "Delete", new { id=item.ContainerID })
+        </td>
+    </tr>
+}
+
+</table>
